@@ -1,0 +1,50 @@
+window.onerror = function(){return true;} 
+///////////////////////////////////////// price /////////////////////////////////////////
+function priceb(){
+	var tpri=document.wfform.wfproduct.value;
+	var spri=tpri.split('|');
+	var pri=spri[1];
+	if(document.wfform.wfmun.value=="" || document.wfform.wfmun.value==0){	
+		var tmun=1;
+	}
+	else{
+		var tmun=document.wfform.wfmun.value;
+	}	
+	var prit=pri*tmun;
+	document.wfform.wfprice.value=prit;	
+	document.getElementById("showprit").innerHTML=prit;
+}
+
+///////////////////////////////////////// pay /////////////////////////////////////////
+function changeItem(i){
+    var k = 3;
+	for(var j = 0;j < k;j++){
+	    if(j == i){
+		    document.getElementById("paydiv" + j).style.display = "block";
+		}
+		else{		
+		    document.getElementById("paydiv" + j).style.display = "none";
+		}
+	}
+}
+function opay(){
+	document.getElementById("wfform").target="_parent";
+}
+function opay2(){
+    document.getElementById("wfform").target="_blank";
+}
+
+///////////////////////////////////////// ref /////////////////////////////////////////
+var wfllref = '';
+if (document.referrer.length > 0){
+	wfllref = document.referrer;
+}
+try{
+	if (wfllref.length == 0 && opener.location.href.length > 0){
+    wfllref = opener.location.href;
+	}
+}
+catch (e){}
+document.cookie="WFLLURL=" + wfllref + ";path=/";
+document.getElementById("wfddll").value = window.top.document.referrer;
+priceb();

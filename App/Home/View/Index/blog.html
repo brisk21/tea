@@ -1,0 +1,84 @@
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="{$config.blog_keywords}">
+	<title>{$config.blog_title}</title>		
+	<link rel="shortcut icon" href="favicon.ico" />
+	<css href="__PUBLIC__/bootstrap/css/bootstrap.min.css" />
+	<css href="__PUBLIC__/Index/css/style.css" />
+	<style type="text/css">
+	.lists{
+	color:rgba(58, 62, 57, 0.89);
+	}
+	.prices{
+		color:red;
+	}
+	.prices span:hover{
+		color:pink;
+	}
+	.panel,.info{
+		overflow:hidden;
+	}
+	.pagination a,.pagination .current{
+		padding:10px;
+		font-size:20px;
+		margin:10px;
+	}
+	</style>
+</head>
+<body>	
+	<div class="container">
+	<include file="./App/Home/Public/nav.html" />		
+		<div class="row">
+			<div class="col-md-8 lists">				
+				<div class="row">
+					<div class="col-md-12 ">
+						<foreach name="blog" item="blogs">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<a href="<?php echo U('/Home/Index/read');?>?id=<?php echo $blogs['id'];?>">
+									<?php echo $blogs['title'];?>
+								</a>					
+							</div>
+							<div class="panel-body">
+								<?php echo mb_substr(strip_tags( html_entity_decode($blogs['content'])),0,80,'utf-8');?>
+							</div>
+							<div class="panel-footer info">
+								<span class="author pull-left">作者：<?php echo $blogs['author'];?></span>
+								<span class="time pull-right"><?php echo date('Y-m-d H:s:m',$blogs['create_time']);?></span>
+							</div>
+						</div>
+						</foreach>	
+					</div>					
+				</div>				
+			</div>
+			<div class="col-md-2 hidden-xs"><embed src="/Public/clock.swf" height="200" width="200"/></div>	
+			<div class="col-md-2 hidden-xs"><embed src="/Public/clock1.swf" height="200" width="200"/></div>	
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="page page-header">
+					<nav>
+						<ul class="pagination">						   
+						<?php echo $page;?>							   
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+	<js href="__PUBLIC__/jquery.min.js" />
+	<js href="__PUBLIC__/bootstrap/js/bootstrap.min.js" />	
+	<js href="__PUBLIC__/bootstrap/js/popover.js" />
+	<script type="text/javascript">
+	$(function () {
+	  $('[data-toggle="popover"]').popover()
+	})
+	</script>
+</body>
+</html>
+

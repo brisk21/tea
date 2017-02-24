@@ -1,0 +1,71 @@
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="{$blogs.keywords}">
+	<title>{$blogs.title}</title>		
+	<css href="__PUBLIC__/bootstrap/css/bootstrap.min.css" />
+	<css href="__PUBLIC__/Index/css/style.css" />
+	<style type="text/css">
+	.lists{
+	color:rgba(58, 62, 57, 0.89);
+	}
+	.prices{
+		color:red;
+	}
+	.prices span:hover{
+		color:pink;
+	}
+	.panel,.info{
+		overflow:hidden;
+	}
+	</style>
+	
+</head>
+<body>	
+	<div class="container">		
+	<include file="./App/Home/Public/nav.html" />
+		<div class="row">
+			<div class="col-md-10 lists">
+				<ol class="breadcrumb">
+				<li><a href="<?php echo U('/Home/Index/');?>">网站首页</a></li>
+				<li><a href="<?php echo U('/Home/Index/blog');?>">博客首页</a></li>
+				<li class="active">{$blogs.title}</li>
+				</ol>
+				<div class="panel panel-info">
+					<div class="panel-heading">						
+						<div class="info">
+							<span class=" pull-left">作者：<?php echo $blogs['author'];?></span>
+							<span class=" pull-right"><?php echo date('Y-m-d H:s:m',$blogs['create_time']);?></span>
+						</div>					
+					</div>
+					<div class="panel-body">
+						<?php echo  html_entity_decode($blogs['content']);?>
+					</div>
+					<div class="panel-footer">
+						<div id="sharebox " style="overflow: hidden;" >
+							<?php include('Public/baidushare.php');?>
+							<span class="pull-right"><span class="glyphicon glyphicon-eye-open "></span><?php echo $blogs['saw'];?>次</span>
+						</div>
+					</div>
+				</div>		
+			</div>
+			<div class="col-md-2 hidden-xs"><embed src="/Public/clock.swf" height="200" width="200"/></div>								
+		</div>
+		<div class="siteInfo">
+			<div class="siteInfo" ><?php echo html_entity_decode( $config["copyright"] ); ?></div>	
+		</div>
+	</div>
+	<js href="__PUBLIC__/jquery.min.js" />
+	<js href="__PUBLIC__/bootstrap/js/bootstrap.min.js" />	
+	<js href="__PUBLIC__/bootstrap/js/popover.js" />
+	<script type="text/javascript">
+	$(function () {
+	  $('[data-toggle="popover"]').popover()
+	})
+	</script>
+</body>
+</html>
+
+

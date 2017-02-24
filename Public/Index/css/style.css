@@ -1,0 +1,119 @@
+body{
+	background:#021615;
+	/*color: #C6CE17;
+	*/
+}
+li{
+	list-style: none;
+	
+}
+.container{
+	margin-top:0px;	
+	padding: 0;
+}
+#mynav{
+	margin-bottom: 0px;
+	background: #021615;
+}
+#wellcomemarquee{
+	color:red;
+	font-size:18px;
+	font-weight:bold;
+}
+.btn-group{
+	margin-left: 10px;
+}
+.logopic{
+	margin:-21px;
+	padding: 0;
+	list-style: none;
+}
+.dropdown-menu li a:hover{	
+	font-size: 16px;
+}
+.logopic a img{
+	
+	max-height: 48px;
+}
+#myCarousel img{
+	margin-top: 0;
+}
+.row{
+	overflow:hidden;
+	margin-top: 10px;
+}
+.thumbnail{
+	background: #021615;
+	border:none;
+	
+}
+.thumbnail .caption{
+	color:#9D9D9D;
+}
+#footer{
+	background: #021615;
+	text-align: center;
+	margin-top: 0px;
+}
+#friendlylink .list-group-item{
+	background: #021615;
+	border:none;
+	width: 150px;
+	margin-top: 1px;
+	color: #A6E1EC;
+}
+#friendlylink .list-group a:hover{
+		color:yellowgreen;
+	}
+
+.jianjie .caption li,.chachuangudao li,.paocha li,.baocun li,.buy p{
+	color: #CCCFCF;
+	list-style: none;	
+	font-size: 18px;
+	text-indent:2em;
+	
+}
+.jianjie .jumbotron,.chachuangudao,.paocha1,.baocun{
+	padding:15px;
+	font-size: 18px;
+}
+
+.baocun .title{
+	color:#A94442;
+	font-weight: bold;
+}
+.page-header{
+	border-bottom:none;
+}
+.gushi p{
+	text-indent:2em;
+	font-size: 16px;
+}
+.shipin h4{
+	color:white;
+}
+.renshi{
+	color:#CCCFCF;
+	font-size: 16px;
+	text-indent:2em;				
+}
+.renshi span,.renshi h3{
+	color:#5E8806;
+	font-weight: bold;
+	font-family: "微软雅黑";
+}
+@media only screen and (min-device-width: 100px) and (max-width: 640px) {
+	#friendlylink .list-group-item{
+		width:100%;
+	}
+	body{
+		color:white;
+	}
+	
+}
+@media only screen and (min-width:640px) and (max-width:980px){
+	#friendlylink .list-group-item{
+		width:50%;
+		float: left;
+	}
+}
